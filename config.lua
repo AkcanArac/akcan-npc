@@ -1,6 +1,5 @@
 Config = {}
 
--- Sabit NPC'ler
 Config.SabitNPCler = {
     {
         model = 'a_m_y_business_01', -- NPC'nin modeli
@@ -16,7 +15,6 @@ Config.SabitNPCler = {
     }
 }
 
--- Devriye atan NPC'ler
 Config.DevriyeNPCler = {
     {
         model = 'a_m_y_hipster_01', -- NPC'nin modeli
@@ -27,12 +25,12 @@ Config.DevriyeNPCler = {
         },
         yon = 270.0, -- Başlangıç yönü
         hiz = 1.0, -- Devriye hızı
-        silah = "WEAPON_PISTOL" -- NPC'nin taşıyacağı silah
+        silah = "WEAPON_BAT" -- NPC'nin taşıyacağı silah
     }
 }
 
 Config.Animasyonlar = {
-    -- **Sosyal Animasyonlar**
+    -- Sosyal Animasyonlar
     ["Ayakta Bekleme"] = { sozluk = "amb@world_human_hang_out_street@male_a@base", anim = "base" },
     ["Sigara İçme"] = { sozluk = "amb@world_human_smoking@male@male_a@base", anim = "base" },
     ["Telefonla Konuşma"] = { sozluk = "cellphone@", anim = "cellphone_call_listen_base" },
@@ -42,7 +40,7 @@ Config.Animasyonlar = {
     ["Kafa Sallama (Evet)"] = { sozluk = "gestures@f@standing@casual", anim = "gesture_pleased" },
     ["Kafa Sallama (Hayır)"] = { sozluk = "gestures@m@standing@casual", anim = "gesture_no_way" },
 
-    -- **Dans Animasyonları**
+    -- Dans Animasyonları
     ["Dans 1"] = { sozluk = "anim@amb@nightclub@dancers@club_ambientpeds@", anim = "mi_dance_facedj_17_v2_male^1" },
     ["Dans 2"] = { sozluk = "anim@mp_player_intcelebrationmale@uncle_disco", anim = "uncle_disco" },
     ["Dans 3 (Enerjik)"] = { sozluk = "anim@amb@nightclub@mini@dance@dance_solo@female@var_b@", anim = "high_center_up" },
@@ -52,26 +50,26 @@ Config.Animasyonlar = {
     ["Striptiz Direk Dansı"] = { sozluk = "mini@strip_club@pole_dance@pole_dance1", anim = "pd_dance_01" },
     ["Direk Dansı 2"] = { sozluk = "mini@strip_club@pole_dance@pole_dance2", anim = "pd_dance_02" },
 
-    -- **İş ve Hobi**
+    -- İş ve Hobi
     ["Bilgisayar Kullanma"] = { sozluk = "amb@world_human_seat_computer@male@base", anim = "base" },
     ["Kutu Taşıma"] = { sozluk = "anim@heists@box_carry@", anim = "idle" },
     ["Gitar Çalma"] = { sozluk = "anim@mp_player_intcelebrationmale@air_guitar", anim = "air_guitar" },
     ["Silah Temizleme"] = { sozluk = "weapons@pistol@", anim = "reload_aim" },
 
-    -- **Düşünme ve Bekleme**
+    -- Düşünme ve Bekleme
     ["Diz Çökme"] = { sozluk = "amb@medic@standing@kneel@base", anim = "base" },
     ["Bekleme (Eller Belde)"] = { sozluk = "amb@world_human_hang_out_street@male_c@base", anim = "base" },
     ["Düşünme"] = { sozluk = "missheist_jewelleadinout", anim = "jh_int_outro_loop_a_male" },
     ["Ellerle Yüzü Kapama"] = { sozluk = "anim@mp_player_intcelebrationmale@face_palm", anim = "face_palm" },
 
-    -- **Spor ve Enerjik**
+    -- Spor ve Enerjik
     ["Şınav Çekme"] = { sozluk = "amb@world_human_push_ups@male@base", anim = "base" },
     ["Mekik Çekme"] = { sozluk = "amb@world_human_sit_ups@male@base", anim = "base" },
     ["Koşu"] = { sozluk = "amb@world_human_jog_standing@male@base", anim = "base" },
     ["Esneme"] = { sozluk = "amb@world_human_stretching@male@base", anim = "base" },
     ["Yoga"] = { sozluk = "amb@world_human_yoga@male@base", anim = "base" },
 
-    -- **Diğer**
+    -- Diğer
     ["Oyun Oynama"] = { sozluk = "amb@world_human_stand_impatient@male@no_sign@base", anim = "base" },
     ["Tartışma"] = { sozluk = "misscommon@response", anim = "argument_short" }
 }
