@@ -1,11 +1,20 @@
 local spawnlananNPCler = {}
 
+-- NPC'ye Silah Ekleme Fonksiyonu
+function NPCSilahVer(npc, silah)
+    if silah and DoesEntityExist(npc) then
+        GiveWeaponToPed(npc, GetHashKey(silah), 1, false, true) -- Silah veriliyor
+        SetCurrentPedWeapon(npc, GetHashKey(silah), true) -- Silah elde tutuluyor
+        SetPedCombatAttributes(npc, 46, true) -- NPC'nin silahını bırakmasını engeller
+    end
+end
+
 -- Animasyon Bulma Fonksiyonu
 function AnimasyonBul(animasyonAdi)
     return Config.Animasyonlar[animasyonAdi]
 end
 
--- NPC Oluşturma Fonksiyonu
+-- Sabit NPC Oluşturma Fonksiyonu
 function NPCOlustur(model, konum, yon, animasyonAdi)
     local animasyon = AnimasyonBul(animasyonAdi)
     RequestModel(model)
@@ -41,16 +50,14 @@ function DevriyeNPCOlustur(veri)
     SetBlockingOfNonTemporaryEvents(npc, true)
 
     -- Silah Ekleme
-    if veri.silah then
-        GiveWeaponToPed(npc, GetHashKey(veri.silah), 100, false, true)
-    end
+    NPCSilahVer(npc, veri.silah)
 
     -- Devriye Güzergahı
     Citizen.CreateThread(function()
         while true do
             for _, konum in ipairs(veri.guzergah) do
                 TaskGoToCoordAnyMeans(npc, konum.x, konum.y, konum.z, veri.hiz, 0, 0, 786603, 0.0)
-                Wait(5000)
+                Wait(5000) -- Her noktada 5 saniye bekler
             end
         end
     end)
