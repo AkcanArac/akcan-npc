@@ -1,6 +1,5 @@
 local spawnlananNPCler = {}
 
--- NPC'ye Silah Ekleme Fonksiyonu
 function NPCSilahVer(npc, silah)
     if silah and DoesEntityExist(npc) then
         GiveWeaponToPed(npc, GetHashKey(silah), 1, false, true) -- Silah veriliyor
@@ -9,12 +8,10 @@ function NPCSilahVer(npc, silah)
     end
 end
 
--- Animasyon Bulma Fonksiyonu
 function AnimasyonBul(animasyonAdi)
     return Config.Animasyonlar[animasyonAdi]
 end
 
--- Sabit NPC Oluşturma Fonksiyonu
 function NPCOlustur(model, konum, yon, animasyonAdi)
     local animasyon = AnimasyonBul(animasyonAdi)
     RequestModel(model)
@@ -38,7 +35,6 @@ function NPCOlustur(model, konum, yon, animasyonAdi)
     table.insert(spawnlananNPCler, npc)
 end
 
--- Devriye NPC Oluşturma Fonksiyonu
 function DevriyeNPCOlustur(veri)
     RequestModel(veri.model)
     while not HasModelLoaded(veri.model) do
@@ -49,10 +45,8 @@ function DevriyeNPCOlustur(veri)
     SetEntityInvincible(npc, true)
     SetBlockingOfNonTemporaryEvents(npc, true)
 
-    -- Silah Ekleme
     NPCSilahVer(npc, veri.silah)
 
-    -- Devriye Güzergahı
     Citizen.CreateThread(function()
         while true do
             for _, konum in ipairs(veri.guzergah) do
@@ -65,14 +59,12 @@ function DevriyeNPCOlustur(veri)
     table.insert(spawnlananNPCler, npc)
 end
 
--- Sabit NPC'leri Oluştur
 Citizen.CreateThread(function()
     for _, npc in ipairs(Config.SabitNPCler) do
         NPCOlustur(npc.model, npc.konum, npc.yon, npc.animasyon)
     end
 end)
 
--- Devriye NPC'leri Oluştur
 Citizen.CreateThread(function()
     for _, npc in ipairs(Config.DevriyeNPCler) do
         DevriyeNPCOlustur(npc)
